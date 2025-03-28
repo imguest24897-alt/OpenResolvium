@@ -1,4 +1,5 @@
 mod crash;
+mod vncscan;
 
 use warp::{Filter, http::Response};
 use std::net::SocketAddr;
