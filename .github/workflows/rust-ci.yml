@@ -19,6 +19,4 @@ jobs:
         run: cargo test
 
       - name: Clean up
-        run: |
-          cargo clean
-          rm -rf $(pwd)
+        run: cargo clean
