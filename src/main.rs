@@ -1,13 +1,15 @@
 mod crash;
 mod vncscan;
 
-use warp::{Filter, http::Response};
+use warp::{Filter, http::Response, Rejection, Reply};
 use std::net::SocketAddr;
 use std::fs;
 use std::path::Path;
 
 #[tokio::main]
 async fn main() {
+    let host = "127.0.0.1";
+    let port = "9080"; // TODO: Make this public when it will be needed
     crash::main(); // Initialize the crash handler. TODO: Add an option to disable this maybe?
     let static_files = warp::fs::dir("res");
 
@@ -28,10 +30,19 @@ async fn main() {
             .unwrap()
     });
 
-    let routes = static_files.or(not_found).with(log);
+    let scan_route = warp::path("api")
+        .and(warp::path("scan"))
+        .and(warp::header::<String>("ip"))
+        .map(|ip: String| {
+            format!("Scanning IP: {}", ip)
+        });
 
-    let addr: SocketAddr = "127.0.0.1:9080".parse().unwrap();
-    println!("Serving OpenResolvium on http://{}", addr);
+    let addr: SocketAddr = format!("{}:{}", host, port)
+        .parse()
+        .expect("Failed to parse address");
+
+    let routes = static_files.or(not_found).with(log);
+    println!("[LOG] 🚀 OpenResolvuim is running at http://{}:{}", host, port);
 
     warp::serve(routes).run(addr).await;
 }
