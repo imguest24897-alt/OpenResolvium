@@ -1,6 +1,6 @@
 # OpenResolvium - `res/vnc.json` Documentation
 
-This document provides an overview of the `res/vnc.json` file used in the OpenResolvium project. OpenResolvium is a tool designed for research purposes to identify insecure VNC servers.
+This document provides an overview of the `res/vnc.json` file used in the OpenResolvium project.
 
 ## Purpose of `res/vnc.json`
 
