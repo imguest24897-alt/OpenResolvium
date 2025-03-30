@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="req/styles.css">
+        <title>OpenResolvium</title>
+    </head>
+    <body>
+        <nav>
+            <big>OpenResolvium</big>
+            <spacing></spacing>
+            <a href="index.html">Home</a>
+            <hr>
+        </nav>
+        <div style="display: flex; align-items: flex-start; justify-content: flex-start;">
+            <img id="vnc-image" src="req/missing.png" alt="VNC Screenshot" style="max-width: 50%; height: auto; margin-right: 20px;">
+            <div>
+                <p>VNC IP: <span id="vnc-ip">N/A</span></p>
+                <p>Status: <span id="vnc-status">Unknown</span></p>
+                <p>Password: <span id="vnc-password">Unknown (likely no password required)</span></p>
+                <button id="next-vnc">Next VNC</button>
+                <button id="prev-vnc" disabled>Previous VNC</button>
+            </div>
+        </div>
+
+        <script src="req/fetchvnc.js"></script>
+    </body>
+</html>

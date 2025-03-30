@@ -14,8 +14,23 @@ function updateVNC() {
     if (vncList.length === 0) return;
 
     const currentVNC = vncList[currentIndex];
+    const validStatuses = [null, 'Up', 'Down'];
+    let status;
+
+    if (validStatuses.includes(currentVNC.status)) {
+        status = currentVNC.status;
+    } else {
+        console.warn("WARNING: You can't use something else that doesn't match Up/Down in the VNC status!");
+        status = 'Unknown';
+    }
+    if (status === null) {
+        console.warn("WARNING: VNC status equals to null, this is not a valid status! Changing status to 'Unknown'.");
+        status = 'Unknown';
+    }
+
     document.getElementById('vnc-ip').textContent = currentVNC.ip || 'N/A';
-    document.getElementById('vnc-status').textContent = currentVNC.status === null ? 'Unknown' : currentVNC.status;
+    document.getElementById('vnc-status').textContent = status;
+    document.getElementById('vnc-password').textContent = currentVNC.password || 'Unknown (likely no password required)';
     document.getElementById('vnc-image').src = currentVNC.img || 'req/missing.png';
 
     document.getElementById('prev-vnc').disabled = currentIndex === 0;
@@ -25,7 +40,6 @@ function updateVNC() {
     vncImage.onerror = () => {
         console.error('VNC screenshot has likely failed to load:', vncImage.src);
         console.info("This bug/error was automatically reported to developers.");
-        
     };
 }
 document.getElementById('next-vnc').addEventListener('click', () => {
