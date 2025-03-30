@@ -15,7 +15,7 @@ async fn main() {
 
     let log = warp::log::custom(|info| {
         if let Some(remote_addr) = info.remote_addr() {
-            println!("{} - {}", remote_addr, info.path());
+            println!("[LOG] {} visited 📄{}", remote_addr, info.path());
         }
     });
 
