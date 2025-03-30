@@ -13,7 +13,7 @@ The file is structured as a JSON object with the following format:
 - **`list`**: A container for all VNC server entries.
     - **`vnc1`, `vnc2`, ...**: Unique identifiers for each VNC server.
         - **`ip`**: The IP address of the VNC server.
-        - **`status`**: The connection status of the server (e.g., `null`, `connected`, `failed`).
+        - **`status`**: The connection status of the server (e.g., `Down`, `Up`).
         - **`img`**: A placeholder for a screenshot or image associated with the server (e.g., `null` or a file path).
 
 ### Example `vnc.json`
