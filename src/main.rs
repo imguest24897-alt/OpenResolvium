@@ -1,5 +1,6 @@
 mod crash;
 mod vncscan;
+mod api;
 
 use warp::{Filter, http::Response, Rejection, Reply};
 use std::net::SocketAddr;
@@ -8,6 +9,7 @@ use std::path::Path;
 
 #[tokio::main]
 async fn main() {
+    api::api_init(); // Initialize the API (Kinda buggy, but it works)
     let host = "127.0.0.1";
     let port = "9080"; // TODO: Make this public when it will be needed
     crash::main(); // Initialize the crash handler. TODO: Add an option to disable this maybe?
