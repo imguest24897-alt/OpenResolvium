@@ -6,6 +6,7 @@ fetch('vnc.json')
     .then(response => response.json())
     .then(data => {
         vncList = shuffleArray(Object.values(data.list));
+        preloadImages(vncList);
         updateVNC();
     })
     .catch(error => console.error('Error loading VNC data:', error));
@@ -16,6 +17,19 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+}
+
+function preloadImages(vncList) {
+    const imageCache = new Map();
+
+    vncList.forEach(vnc => {
+        if (vnc.img && !imageCache.has(vnc.img)) {
+            const img = new Image();
+            img.src = vnc.img;
+            img.onload = () => imageCache.set(vnc.img, true);
+            img.onerror = () => console.warn(`Failed to preload image: ${vnc.img}`);
+        }
+    });
 }
 
 function updateVNC() {
