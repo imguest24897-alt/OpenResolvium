@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (explore) {
         explore.onclick = function() {
-            window.location.href = 'explore.html';
+            window.location.href = 'browse.html';
         }
     }
 });
