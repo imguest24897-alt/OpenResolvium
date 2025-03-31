@@ -5,10 +5,18 @@ let vncList = [];
 fetch('vnc.json')
     .then(response => response.json())
     .then(data => {
-        vncList = Object.values(data.list);
+        vncList = shuffleArray(Object.values(data.list));
         updateVNC();
     })
     .catch(error => console.error('Error loading VNC data:', error));
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 function updateVNC() {
     if (vncList.length === 0) return;
