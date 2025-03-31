@@ -28,7 +28,7 @@ function updateVNC() {
     if (validStatuses.includes(currentVNC.status)) {
         status = currentVNC.status;
     } else {
-        console.warn("WARNING: You can't use something else that doesn't match Up/Down in the VNC status!");
+        console.warn("WARNING: You can't use something else that doesn't match valid statuses in the VNC status!");
         status = 'Unknown';
     }
     if (status === null) {
