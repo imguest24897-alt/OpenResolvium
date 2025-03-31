@@ -16,6 +16,7 @@ The file is structured as a JSON object with the following format:
         - **`status`**: The connection status of the server (e.g., `Down`, `Up`).
         - **`img`**: A placeholder for a screenshot or image associated with the server (e.g., `null` or a file path).
         - **`password`**: The password of the VNC server.
+        - **`clientName`**: Name of the client.
 
 ### Example `vnc.json`
 
@@ -28,13 +29,15 @@ Below is a sample `vnc.json` file:
             "ip": "Test IP",
             "status": null,
             "img": null,
-            "password": "abc123"
+            "password": "abc123",
+            "clientName": "QEMU (Linux)"
         },
         "vnc2": {
             "ip": "Test IP 2",
             "status": null,
             "img": null,
-            "password": null
+            "password": null,
+            "clientName": "QEMU (Linux)"
         }
     }
 }

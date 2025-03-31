@@ -22,7 +22,7 @@ function updateVNC() {
     if (vncList.length === 0) return;
 
     const currentVNC = vncList[currentIndex];
-    const validStatuses = [null, 'Up', 'Down'];
+    const validStatuses = [null, 'Up', 'Down', 'Up (responded to ping)', 'Down (did not respond to ping)'];
     let status;
 
     if (validStatuses.includes(currentVNC.status)) {
@@ -40,6 +40,7 @@ function updateVNC() {
     document.getElementById('vnc-status').textContent = status;
     document.getElementById('vnc-password').textContent = currentVNC.password || 'Unknown (likely no password required)';
     document.getElementById('vnc-image').src = currentVNC.img || 'req/missing.png';
+    document.getElementById('vnc-client').textContent = currentVNC.clientName || 'Unknown Client';
 
     document.getElementById('prev-vnc').disabled = currentIndex === 0;
     document.getElementById('next-vnc').disabled = currentIndex === vncList.length - 1;
