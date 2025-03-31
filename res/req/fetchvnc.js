@@ -22,7 +22,7 @@ function updateVNC() {
     if (vncList.length === 0) return;
 
     const currentVNC = vncList[currentIndex];
-    const validStatuses = [null, 'Up', 'Down', 'Up (responded to ping)', 'Down (did not respond to ping)', 'Down (could not connect to server)', 'Up (unknown)', 'Down (unknown)'];
+    const validStatuses = [null, 'Up', 'Down', 'Up (responded to ping)', 'Down (did not respond to ping)', 'Down (could not connect to server)', 'Up (unknown)', 'Down (unknown)', 'Up (received HTTP/0.9 when not allowed)'];
     let status;
 
     if (validStatuses.includes(currentVNC.status)) {
