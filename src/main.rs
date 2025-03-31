@@ -48,3 +48,7 @@ async fn main() {
 
     warp::serve(routes).run(addr).await;
 }
+pub async fn import_from_vncresolver() {
+    // Hint: Do not abuse the API of VNC Resolver. Seriously, just don't. No, I don't own it.
+    eprintln!("[WARN] This is not implemented :(");
+}
