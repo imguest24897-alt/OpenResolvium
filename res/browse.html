@@ -6,7 +6,7 @@
         <meta charset="UTF-8"> <!-- Pro tip for further development notice: Never forget to add this to all of the pages because it will cause gibberish instead of the U+2588 in the ASCII art at everypage.js. -->
     </head>
     <body>
-        <nav>
+        <nav class="titlebar">
             <big>OpenResolvium</big>
             <spacing></spacing>
             <a href="index.html">Home</a>
@@ -14,7 +14,7 @@
             <a href="browse.html">Browse</a>
             <hr>
         </nav>
-        <div style="display: flex; align-items: flex-start; justify-content: flex-start;">
+        <div style="display: flex; align-items: flex-start; justify-content: flex-start;" class="browse-content">
             <img id="vnc-image" src="req/missing.png" alt="VNC Screenshot" style="max-width: 50%; height: auto; margin-right: 20px;">
             <div>
                 <p>VNC IP: <span id="vnc-ip">N/A</span></p>
